@@ -17,11 +17,6 @@ public class ProjetJavaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Administrateur a = new Administrateur();
-        a.setNom("zakaria");
-        a.setEmail("zikoziko971@gmail.com");
-        a.setPrenom("mh");
-        a.setMotDePasse("ziko");
-        utilisateurRepository.save(a);
+
     }
 }
