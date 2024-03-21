@@ -1,4 +1,4 @@
-package com.example.projetjava.entities;
+package com.example.projetjava.dao.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,6 +17,6 @@ public class Etudiant extends Utilisateur {
     String niveau;
     @ManyToOne()
     Groupe groupe;
-    @ManyToMany(mappedBy = "etudiants")
+    @ManyToMany(mappedBy = "etudiants" , fetch = FetchType.EAGER)
     Collection<Matiere> matieres;
 }

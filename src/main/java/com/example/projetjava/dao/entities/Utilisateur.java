@@ -1,4 +1,4 @@
-package com.example.projetjava.entities;
+package com.example.projetjava.dao.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,6 +17,8 @@ public abstract class Utilisateur {
     int id;
     String nom;
     String prenom;
+    int age;
+    String flag;
     String email;
     String motDePasse;
 }

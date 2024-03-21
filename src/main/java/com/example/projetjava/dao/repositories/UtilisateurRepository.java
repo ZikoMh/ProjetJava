@@ -1,0 +1,10 @@
+package com.example.projetjava.dao.repositories;
+
+import com.example.projetjava.dao.entities.Utilisateur;
+import com.example.projetjava.service.UtilisateurManager;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UtilisateurRepository extends JpaRepository<Utilisateur,Integer> {
+    public Utilisateur findByNom(String nom);
+}
