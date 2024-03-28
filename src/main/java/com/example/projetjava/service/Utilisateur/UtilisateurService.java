@@ -1,4 +1,4 @@
-package com.example.projetjava.service;
+package com.example.projetjava.service.Utilisateur;
 
 import com.example.projetjava.dao.entities.Utilisateur;
 import com.example.projetjava.dao.repositories.UtilisateurRepository;

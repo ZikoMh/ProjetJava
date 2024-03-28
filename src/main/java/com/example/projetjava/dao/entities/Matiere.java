@@ -17,8 +17,8 @@ public class Matiere {
     int idMatiere;
     String nom;
     String description;
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.EAGER)
     Collection<Etudiant> etudiants;
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.EAGER)
     Collection<Professeur> professeurs;
 }
