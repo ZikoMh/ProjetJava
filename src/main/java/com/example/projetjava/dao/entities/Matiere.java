@@ -17,8 +17,11 @@ public class Matiere {
     int idMatiere;
     String nom;
     String description;
-    @ManyToMany(fetch = FetchType.EAGER)
-    Collection<Etudiant> etudiants;
+
     @ManyToMany(fetch = FetchType.EAGER)
     Collection<Professeur> professeurs;
+    @ManyToMany()
+    private Collection<Filiere>filieres;
+    @OneToMany(mappedBy = "matieres",fetch = FetchType.EAGER)
+    private Collection<Note>notes;
 }

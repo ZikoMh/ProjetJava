@@ -1,7 +1,9 @@
 package com.example.projetjava;
 
 import com.example.projetjava.dao.entities.Administrateur;
+import com.example.projetjava.dao.entities.Etudiant;
 import com.example.projetjava.dao.entities.Matiere;
+import com.example.projetjava.dao.entities.Utilisateur;
 import com.example.projetjava.service.Matiere.MatiereManager;
 import com.example.projetjava.service.Utilisateur.UtilisateurManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +25,6 @@ public class ProjetJavaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Matiere m1 = new Matiere();
-        Matiere m2 = new Matiere();
-
-        m1.setNom("info");
-        m1.setDescription("info est");
-        m1.setEtudiants(null);
-        m1.setProfesseurs(null);
-        maManager.addMatiere(m1);
-        m2.setNom("gestion");
-        m2.setDescription("info est");
-        m2.setEtudiants(null);
-        m2.setProfesseurs(null);
-        maManager.addMatiere(m2);
-//        System.out.println(maManager.MatierebyName("gestio"));
 
 
     }

@@ -16,7 +16,7 @@ public class Etudiant extends Utilisateur {
     String specialite;
     String niveau;
     @ManyToOne()
-    Groupe groupe;
-    @ManyToMany(mappedBy = "etudiants" , fetch = FetchType.EAGER)
-    Collection<Matiere> matieres;
+    private Filiere filiere;
+    @OneToMany(mappedBy = "etudiants" , fetch = FetchType.EAGER)
+    private Collection<Note>notes;
 }

@@ -4,21 +4,35 @@ import com.example.projetjava.dao.entities.Utilisateur;
 import com.example.projetjava.service.Utilisateur.UtilisateurManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UtilisateurController {
     @Autowired
     UtilisateurManager uManager;
 
-    @GetMapping("/listUsers")
-    public List<Utilisateur> getAllUsers(Model model){
+    @GetMapping("/lists")
+    public String listuser(Model model){
         List<Utilisateur> users = uManager.allUtilisateurs();
+
         model.addAttribute("users",users);
-        return users;
+        return "listuser";
+    }
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+    @GetMapping("/index")
+    public String page (){
+        return "index";
+    }
+    @GetMapping("/ajouterUser")
+    public String addUser(){
+        return "ajouterUser";
     }
     @PostMapping("/ajouterUser")
     public ResponseEntity<Utilisateur> addUser(Model model , @RequestBody Utilisateur utilisateur){
