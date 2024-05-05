@@ -23,36 +23,29 @@
 <body>
 
 <div class="container">
-    <h1 class="mb-4">Ajouter Utilisateur</h1>
-    <form th:action="@{/addUser}" th:object="${user}" method="post">
+    <h1 class="mb-4">Ajouter Administrateur</h1>
+    <form role="form" th:action="@{/users/ajouterAdministrateur}" th:object="${administrateur}" method="post">
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom"  required>
+            <input type="text" class="form-control" id="nom" th:field="*{nom}" required>
         </div>
         <div class="mb-3">
             <label for="prenom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="prenom"  required>
+            <input type="text" class="form-control" id="prenom" th:field="*{prenom}" required>
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Âge</label>
-            <input type="number" class="form-control" id="age"  required>
+            <input type="number" class="form-control" id="age" th:field="*{age}" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
+            <input type="email" class="form-control" id="email" th:field="*{email}" required>
         </div>
         <div class="mb-3">
             <label for="motDePasse" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="motDePasse"  required>
+            <input type="password" class="form-control" id="motDePasse" th:field="*{motDePasse}" required>
         </div>
-        <div class="mb-3">
-            <label for="typeUtilisateur" class="form-label">Type Utilisateur</label>
-            <select class="form-select" id="typeUtilisateur" >
-                <option value="ETUDIANT">Étudiant</option>
-                <option value="PROFESSEUR">Professeur</option>
-                <option value="ADMINISTRATEUR">Administrateur</option>
-            </select>
-        </div>
+
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </div>

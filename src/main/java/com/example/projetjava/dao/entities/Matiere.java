@@ -18,10 +18,11 @@ public class Matiere {
     String nom;
     String description;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "matiere",fetch = FetchType.EAGER)
     Collection<Professeur> professeurs;
+    private double note;
     @ManyToMany()
     private Collection<Filiere>filieres;
-    @OneToMany(mappedBy = "matieres",fetch = FetchType.EAGER)
-    private Collection<Note>notes;
+
+
 }

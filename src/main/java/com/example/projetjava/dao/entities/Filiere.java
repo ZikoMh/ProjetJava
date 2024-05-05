@@ -15,7 +15,7 @@ public class Filiere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_filiere;
-    private String nom_filiere;
+    private String nom;
     @OneToMany(mappedBy = "filiere" ,fetch = FetchType.EAGER)
     private Collection<Etudiant> etudiants;
     @ManyToMany(mappedBy = "filieres",fetch = FetchType.EAGER)

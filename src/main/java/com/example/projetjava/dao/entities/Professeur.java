@@ -2,6 +2,7 @@ package com.example.projetjava.dao.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,6 @@ import java.util.Collection;
 @NoArgsConstructor
 public class Professeur extends Utilisateur{
     String specialite;
-    @ManyToMany(mappedBy = "professeurs")
-    Collection<Matiere> matieres;
+    @ManyToOne()
+    Matiere matiere;
 }

@@ -1,5 +1,7 @@
 package com.example.projetjava.web;
 
+import com.example.projetjava.dao.entities.Administrateur;
+import com.example.projetjava.dao.entities.Etudiant;
 import com.example.projetjava.dao.entities.Utilisateur;
 import com.example.projetjava.service.Utilisateur.UtilisateurManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ public class UtilisateurController {
     @Autowired
     UtilisateurManager uManager;
 
-    @GetMapping("/lists")
+    @GetMapping("/users")
     public String listuser(Model model){
         List<Utilisateur> users = uManager.allUtilisateurs();
 
@@ -30,21 +32,38 @@ public class UtilisateurController {
     public String page (){
         return "index";
     }
-    @GetMapping("/ajouterUser")
-    public String addUser(){
-        return "ajouterUser";
+    @GetMapping("/users/ajouterEtudiant")
+    public String addEtudiant(Model model){
+        Etudiant etudiant = new Etudiant();
+        model.addAttribute("etudiant",etudiant);
+        return "ajouterEtudiant";
     }
-    @PostMapping("/ajouterUser")
-    public ResponseEntity<Utilisateur> addUser(Model model , @RequestBody Utilisateur utilisateur){
-        Utilisateur user = uManager.addUtilisateur(utilisateur);
-        return ResponseEntity.ok().body(utilisateur);
+    @PostMapping("/users/ajouterEtudiant")
+    public String saveEtudiant(@ModelAttribute("etudiant") Etudiant etudiant){
+        uManager.addUtilisateur(etudiant);
+        return "redirect:/users";
+    }
+    @GetMapping("/users/ajouterProfesseur")
+    public String addProfesseur(Model model){
+        return "ajouterProfesseur";
+    }
+    @GetMapping("/users/ajouterAdministrateur")
+    public String addAdministrateur(Model model){
+        Utilisateur user = new Administrateur();
+        model.addAttribute("administrateur",user);
+        return "ajouterAdministrateur";
+    }
+    @PostMapping("/users/ajouterAdministrateur")
+    public String saveAdministrateur(@ModelAttribute("administrateur")Administrateur administrateur){
+        uManager.addUtilisateur(administrateur);
+        return "redirect:/users";
+    }
+    @GetMapping("/supprimeruser/{id}")
+    public String supprimerrUser(Model model,@PathVariable("id") Integer id){
+        if(uManager.deleteUtilisateur(id)) return "redirect:/lists";
+        else return "erreur";
+    }
 
-    }
-    @PostMapping("/deleteUtilisateur/{id}")
-    public boolean deleteUtilisateur(@PathVariable("id")int id){
-        boolean userDeleted = uManager.deleteUtilisateur(id);
-            return userDeleted;
-    }
 
 
 }
